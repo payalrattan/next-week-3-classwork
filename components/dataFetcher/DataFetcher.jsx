@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { getPeople } from "@/sevices/starWaraServices";
+import { getPeople } from "@/services/starWarServices";
 
 export const DataFetcher = () => {
   const [data, setData] = useState([]);
@@ -10,9 +10,10 @@ export const DataFetcher = () => {
       const response = await getPeople();
       setData(response);
     } catch (e) {
-      console.log(e.message ?? "something bad");
+      console.log(e.message ?? "something went wrong");
     }
   };
+
   useEffect(() => {
     getData();
   }, []);
@@ -20,21 +21,26 @@ export const DataFetcher = () => {
   return (
     <div>
       {data.length > 0 ? (
-        <ul>
+        <div>
           {data.map((person, index) => (
-            <li key={index}>
-              <p><b>Name of the Person:---</b>{person.name}</p>
-              <p><b>Gender:---</b>{person.gender}</p>
-            <p><b>Height:---</b>{person.height}</p>
-             <p>Birth Year:---{person.birth_year}</p>
-            <p>HAir Color:---{person.hair_color}</p>
-           
-            
-            </li>
+            <div
+              key={index}
+              style={{
+                background: "#edf2f7",
+                margin: "1rem auto",
+                textAlign: "left",
+              }}
+            >
+              <strong>Name:</strong> {person.name} <br />
+              <strong>Height:</strong> {person.height} <br />
+              <strong>Mass:</strong> {person.mass} <br />
+              <strong>Gender:</strong> {person.gender} <br />
+              <strong>Birth Year:</strong> {person.birth_year}
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
-        <p>Loading...</p>
+        <p>Fetching People Details...</p>
       )}
     </div>
   );

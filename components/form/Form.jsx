@@ -1,26 +1,52 @@
 import { useState } from "react";
-export const Form = () => {
-  const [details, setDetails] = useState({ userName: "", age: 0, dob: "" });
+export const SimpleForm = ({
+  formClassName = "",
+  inputClassName = "",
+  textareaClassName = "",
+  buttonClassName = "",
+  resultClassName = "",
+}) => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const submitHandler = (formData) => {
-    setDetails({
-      userName: formData.get("userName"),
-      age: formData.get("age"),
-      dob: formData.get("dob"),
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    setForm({
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
     });
   };
 
   return (
     <div>
-      <p>UserName is : {details.userName}</p>
-      <p>user age is : {details.age}</p>
-      <p>DOB is : {details.dob}</p>
-      <form action={submitHandler}>
-        <input type="text" name="userName" />
-        <input type="number" name="age" />
-        <input type="date" name="dob" />
-        <button type="submit">Submit</button>
+      <form onSubmit={submitHandler} className={formClassName}>
+        <input
+          type="text"
+          placeholder="Enter your name"
+          name="name"
+          className={inputClassName}
+        />
+        <input
+          type="email"
+          placeholder="Enter your E-mail"
+          name="email"
+          className={inputClassName}
+        />
+        <textarea
+          placeholder="Enter your message"
+          name="message"
+          className={textareaClassName}
+        />
+        <button type="submit" className={buttonClassName}>
+          Submit
+        </button>
       </form>
+      <div className={resultClassName}>
+        <p>Name: {form.name}</p>
+        <p>Email: {form.email}</p>
+        <p>Message: {form.message}</p>
+      </div>
     </div>
   );
 };
