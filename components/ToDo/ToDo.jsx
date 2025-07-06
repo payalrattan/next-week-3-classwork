@@ -13,14 +13,13 @@ export const ToDo = () => {
       <form action={submitHandler}>
         <input type="text" name="newItem" placeholder="Add new item" />
         <button type="submit"> add item</button>
-         <ol>
+        <ol>
           {todos.map((todo, index) => (
             <li key={index}>{todo}</li>
           ))}
         </ol>
       </form>
       <p>Number of items: {todos.length}</p>
-     
     </div>
   );
 };

@@ -1,0 +1,28 @@
+.container {
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.container h1 {
+  color: #2d3748;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.personCard {
+  background: #edf2f7;
+  margin: 1rem auto;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 400px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
