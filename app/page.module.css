@@ -16,3 +16,13 @@
 .section {
   margin-bottom: 2rem;
 }
+
+.personCard {
+  background: #edf2f7;
+  margin: 1rem auto;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 400px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}

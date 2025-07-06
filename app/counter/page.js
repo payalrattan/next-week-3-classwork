@@ -9,7 +9,7 @@ export default function CounterPage() {
   const countHandler = () => {
     setCount(count + 1);
   };
-  const countdownHandler = () => {
+  const countDownHandler = () => {
     setCount(count - 1);
   };
 
@@ -19,7 +19,7 @@ export default function CounterPage() {
       <Counter
         count={count}
         countHandler={countHandler}
-        countdownHandler={countdownHandler}
+        countDownHandler={countDownHandler}
       />
     </div>
   );

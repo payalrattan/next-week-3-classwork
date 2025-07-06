@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { getPeople } from "@/services/starWarServices";
+import styles from "@/app/page.module.css"; 
 
 export const DataFetcher = () => {
   const [data, setData] = useState([]);
@@ -23,14 +24,7 @@ export const DataFetcher = () => {
       {data.length > 0 ? (
         <div>
           {data.map((person, index) => (
-            <div
-              key={index}
-              style={{
-                background: "#edf2f7",
-                margin: "1rem auto",
-                textAlign: "left",
-              }}
-            >
+            <div key={index} className={styles.personCard}>
               <strong>Name:</strong> {person.name} <br />
               <strong>Height:</strong> {person.height} <br />
               <strong>Mass:</strong> {person.mass} <br />
